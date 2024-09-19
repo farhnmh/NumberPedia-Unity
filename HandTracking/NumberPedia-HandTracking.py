@@ -8,7 +8,6 @@ import cv2, os, pygame.image, pygame.camera, pyglet, subprocess
 #tracking
 from cvzone.HandTrackingModule import HandDetector
 from cvzone.ColorModule import ColorFinder
-from cvzone import FPS 
 import GeneralAttribute, UDPDataSender
 import os, cv2, numpy as np, pyautogui, threading, cvzone, imutils
 
@@ -58,7 +57,6 @@ def BallCircleVisualizing():
     greenLower = (29, 86, 6)
     greenUpper = (64, 255, 255)
 
-    fpsReader = FPS()
     cap.set(3, 1280)
     cap.set(4, 720)
 
@@ -125,7 +123,6 @@ def BallColorVisualizing():
     widthScreen, heightScreen = pyautogui.size()
     winName = 'NumberPedia-HandTracking'
 
-    fpsReader = FPS()
     cap.set(3, 1280)
     cap.set(4, 720)
 
@@ -210,7 +207,6 @@ def HandVisualizing(index):
     widthScreen, heightScreen = pyautogui.size()
     winName = 'NumberPedia-HandTracking'
 
-    fpsReader = FPS()
     cap.set(3, 1280)
     cap.set(4, 720)
 
@@ -308,7 +304,6 @@ def HandVisualizing(index):
         
         cv2.putText(result, f'Esc To Stop Camera', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 128), 2)
         cv2.putText(result, f'Slide To Right For Scalling Camera Zoom', (50, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
-        fps, img = fpsReader.update(result,pos=(50, 610),color=(128,0,0),scale=1.5,thickness=2)
         cv2.putText(result, f'Sending: {GeneralAttribute.positionHand}', (50, 640), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 128), 2)
         cv2.putText(result, f'Total Hand Detected: {totalHand + 1}', (50, 670), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 128), 2)
         
